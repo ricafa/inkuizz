@@ -1,0 +1,14 @@
+<h1>Just Start</h1>
+
+<h3> <%="#{@question.question_number}. #{@question.ask_a_question}"  %> </h3>
+
+<%= form_tag '/start', method: "get" do %>
+  <%= hidden_field_tag(:uid, @user.id)%>
+  <% @answers.each do |a| %>
+    <% unless a.options.nil?  %>
+      <%= radio_button_tag('an', a.answer_number) %>
+      <%= label_tag('an', a.options) %><br />
+    <% end %>
+  <% end %>
+  <%= submit_tag('Next')%>
+<% end %>
