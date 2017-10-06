@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(version: 20171005152147) do
 
   create_table "users", force: :cascade do |t|
     t.string   "browser"
-    t.string   "thekey"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.string   "thekey"
     t.integer  "question_number", default: 1
     t.index ["question_number"], name: "index_users_on_question_number", using: :btree
     t.index ["thekey"], name: "index_users_on_thekey", using: :btree
