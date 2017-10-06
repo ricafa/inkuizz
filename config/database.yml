@@ -84,6 +84,7 @@ test:
 #
 production:
   <<: *default
-  database: inkuizz_production
-  username: inkuizz
-  password: <%= ENV['INKUIZZ_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  #database: inkuizz_production
+  #username: inkuizz
+  #password: <%= ENV['INKUIZZ_DATABASE_PASSWORD'] %>
