@@ -1,34 +1,33 @@
 class PagesController < ApplicationController
-  before_action :setUser, only: [:start]
+  before_action :setUser
 
   def start
-  #  binding.pry
-    if @user.question_number < 6
-      if params[:an].present?
+    #  binding.pry
+    if params[:an].present?
 
-        @user.answer_question params[:an]
-        #get the next question
-        @user.question_number = @user.question_number + 1
-        @user.save
+      @user.answer_question params[:an]
 
-        @question = @user.create_question
-      else #if question is nil, start from the beginning
-        @question = @user.create_question
-      end
-      #get the answers by question_number
-      generate_answers @question.question_number
-    else #if complete the quiz,it shows the results.
-      redirect_to finish_path
+      #get the next question
+      @user.question_number = @user.question_number + 1
+      @user.save
+      @question = @user.create_question
+    else #if question is nil, start from the beginning
+      @question = @user.create_question
     end
+
+    redirect_to finish_path if quizz_end
+    generate_answers @question.question_number
+
   end
 
   def finish
+    redirect_to start_path unless quizz_end
   end
 
   private
 
-  def setQuestion #set the question that user stops
-
+  def quizz_end
+    @user.question_number >5
   end
 
   def setUser

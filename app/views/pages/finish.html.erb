@@ -1,2 +1,12 @@
-<h1>Pages#finish</h1>
-<p>Find me in app/views/pages/finish.html.erb</p>
+<h1>That's All!</h1>
+<p></p>
+
+
+<% 1.upto(5) do |x| %>
+  <%  @question = Question.where(user_id: @user.id, question_number: x).first %>
+  <h3><%= "#{@question.question_number}. #{@question.ask_a_question.capitalize}" %></h3>
+  <% 1.upto(5) do |an| %>
+    <% @answers = Answer.where(question_number: @question.question_number, answer_number: an).first %>
+    <%= "#{@answers.options} - Total:  #{@answers.total}<br/>".html_safe unless @answers.options.nil? %>
+  <% end %>
+<% end %>
