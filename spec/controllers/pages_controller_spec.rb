@@ -12,6 +12,19 @@ RSpec.describe PagesController, type: :controller do
       get :start
       expect(response).to have_http_status(:success)
     end
+
+    it "gets a user by uid" do
+      @user = User.create(id: 1 )
+      get :start, :params => { uid: 1 }
+      expect(response).to have_http_status(:success)
+    end
+
+    it 'fails if user complete the quiz' do
+      @user = User.create(id: 1, question_number: 6 )
+      get :start
+      expect(response).to have_http_status(:success)
+    end
+
   end
 
   describe "GET #finish" do

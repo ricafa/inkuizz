@@ -36,7 +36,7 @@ class Question < ApplicationRecord
       when 4
         self.right_answer = 5
       when 5
-        self.right_answer = 3
+        self.right_answer = 1
     end
 
     #here set if the selected option is the right one.

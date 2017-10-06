@@ -1,12 +1,33 @@
 <h1>That's All!</h1>
 <p></p>
 
+<div class="panel-group" id="faqAccordion">
+  <% 1.upto(5) do |x| %>
+    <%  @question = Question.where(user_id: @user.id, question_number: x).order('created_at').first %>
+    <h3></h3>
+        <div class="panel panel-default ">
+            <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question<%= x %>">
+                 <h3 class="panel-title">
+                    <span class="ing"><%= "#{@question.question_number}. #{@question.ask_a_question.titlecase} " %> <%= '<span class="label label-success">Answer</span>'.html_safe if @question.correct%> </span>
+              </h3>
+            </div>
 
-<% 1.upto(5) do |x| %>
-  <%  @question = Question.where(user_id: @user.id, question_number: x).first %>
-  <h3><%= "#{@question.question_number}. #{@question.ask_a_question.capitalize}" %></h3>
-  <% 1.upto(5) do |an| %>
-    <% @answers = Answer.where(question_number: @question.question_number, answer_number: an).first %>
-    <%= "#{@answers.options} - Total:  #{@answers.total}<br/>".html_safe unless @answers.options.nil? %>
-  <% end %>
-<% end %>
+            <div id="question<%= x%>" class="panel-collapse collapse" style="height: 0px;">
+                <div class="panel-body">
+                     <% 1.upto(5) do |an| %>
+                       <% @answers = Answer.where(question_number: @question.question_number, answer_number: an).first %>
+                       <p>
+                        <% unless @answers.options.nil? %>
+                          <h3><span class="label label-<%= @question.right_answer == an ? 'success' : (@question.choosen == an ? 'red' : 'default') %>" >
+                            <%= "#{@answers.options} -  #{@answers.total }  users answered that. <br/>".html_safe  %>
+                          </span>
+                        </h3>
+                        <% end %>
+                      </p>
+                      <% end %>
+                </div>
+            </div>
+
+        </div>
+        <% end %>
+    </div>

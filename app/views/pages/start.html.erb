@@ -1,4 +1,4 @@
-<h1>Just Start</h1>
+<h1>Good Luck!</h1>
 
 <h3> <%="#{@question.question_number}. #{@question.ask_a_question}"  %> </h3>
 
@@ -10,5 +10,6 @@
       <%= label_tag('an', a.options) %><br />
     <% end %>
   <% end %>
-  <%= submit_tag('Next')%>
+
+  <%= submit_tag "Next".html_safe, class: 'btn btn-primary', data: { disable_with: "Please wait..." }  %>
 <% end %>
