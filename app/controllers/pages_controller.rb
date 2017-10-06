@@ -11,7 +11,7 @@ class PagesController < ApplicationController
       @user.question_number = @user.question_number + 1
       @user.save
       @question = @user.create_question
-    else #if question is nil, start from the beginning
+    else #if there is no params, start from where stop
       @question = @user.create_question
     end
 
