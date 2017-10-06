@@ -13,15 +13,15 @@ class Question < ApplicationRecord
   def ask(n)
     case n
       when 1
-        "How many States are in the United States?"
+        "What is the most likely reason you’ll fail?"
       when 2
         "How often a human blink?"
       when 3
         "What is the answer for life universe and everything?"
       when 4
-        "question 4"
+        "This man started life interning as a financial analyst for the Bank of Nova Scotia. He has claimed that he will one day 'build an intelligent car capable of not believing in God'. Who is he?"
       when 5
-        "question 5"
+        "Steve Jobs and Steve Wozniak founded Apple. But long before the company was formally launched they sold their first product named the Blue Box. What exactly did the Blue Box do?"
     end
   end
 

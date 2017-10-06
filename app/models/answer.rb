@@ -14,15 +14,15 @@ class Answer < ApplicationRecord
     if question == 1
       case n
         when 1
-          "53"
+          "Money left over"
         when 2
-          "42"
+          "Premature Scaling"
         when 3
-          "18"
+          "Lack of time"
         when 4
-          "12"
+          "Lack of people"
         when 5
-          "23"
+          "Distant place"
       end
     elsif question == 2
       case n
@@ -40,35 +40,35 @@ class Answer < ApplicationRecord
     elsif question == 3
       case n
         when 1
-          "3 an 1"
+          "It's 82"
         when 2
-          "3 an 2"
+          "It's 11"
         when 3
-          "3 an 3"
+          "It's 23"
         when 4
-          "3 an 4"
+          "It's 42"
         when 5
           nil
       end
   elsif question == 4
     case n
       when 1
-        "4 an 1"
+        "mark zuckerberg"
       when 2
-        "4 an 2"
+        "Stephen Hawkins"
       when 3
-        "4 an 3"
+        "Steve Wozniak"
       when 4
-        "4 an 4"
+        "Bill Gates"
       when 5
-        "4 an 5"
+        "Elon Musk"
     end
   elsif question == 5
     case n
       when 1
-        "5 an 1"
+        "It hacked into tone-dialling systems and allowed users to make free phone calls. (Illegal of course.)"
       when 2
-        "5 an 2"
+        "It hacked into tone-dialling system across social engineering. (Legal of course.)"
       when 3
         nil
       when 4
